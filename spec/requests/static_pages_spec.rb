@@ -6,7 +6,12 @@ describe "StaticPages" do
   describe "Home Page" do
     it "should have the title 'Home'" do
       visit '/static_pages/home'
-      expect(page).to have_title("SWYRT | Home")
+      expect(page).to have_title("SWYRT")
+    end
+
+    it "should not have a custom page title" do
+      visit '/static_pages/home'
+      expect(page).not_to have_title('| Home')
     end
 
     it "Should have the content 'Say What You Really Think'" do
